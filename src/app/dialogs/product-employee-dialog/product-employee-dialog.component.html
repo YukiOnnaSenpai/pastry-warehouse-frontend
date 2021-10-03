@@ -1,0 +1,66 @@
+<div class="container">
+    <h3 mat-dialog-title *ngIf="flag==1">Dodavanje zaposlenog</h3>
+    <h3 mat-dialog-title *ngIf="flag==2">Modifikacija zaposlenog</h3>
+    <h3 mat-dialog-title *ngIf="flag==3">Brisanje zaposlenog</h3>
+    <form class="mat-dialog-content" #formControl="ngForm">
+      <div class="form">
+        <mat-form-field>
+          <input matInput placeholder="Ime" [(ngModel)]="data.firstName" name="firstName" [disabled]="flag==3" required>
+        </mat-form-field>
+      </div>
+      <div class="form">
+        <mat-form-field>
+          <input matInput placeholder="Prezime" [(ngModel)]="data.lastName" name="lastName" [disabled]="flag==3" required>
+        </mat-form-field>
+      </div>
+      <div class="form">
+        <mat-form-field>
+          <input matInput placeholder="JMBG" [(ngModel)]="data.personalId" name="personalId" [disabled]="flag==3" required>
+        </mat-form-field>
+      </div>
+      <div class="form">
+        <mat-form-field>
+          <input matInput placeholder="Broj telefona" [(ngModel)]="data.phoneNumber" name="phoneNumber" [disabled]="flag==3" required>
+        </mat-form-field>
+      </div>
+      <div class="form">
+        <mat-form-field>
+          <input matInput placeholder="Broj računa" [(ngModel)]="data.bankAccountNumber" name="bankAccountNumber" [disabled]="flag==3" required>
+        </mat-form-field>
+      </div>
+      <div class="form">
+        <mat-form-field>
+          <input matInput placeholder="Kvalifikacija" [(ngModel)]="data.qualifications" name="qualifications" [disabled]="flag==3" required>
+        </mat-form-field>
+      </div>
+      <div class="form">
+        <mat-form-field>
+          <input matInput placeholder="Plata" [(ngModel)]="data.salary" name="salary" [disabled]="flag==3" required>
+        </mat-form-field>
+      </div>
+      <mat-form-field>
+        <mat-label>Tip smene</mat-label>
+        <mat-select [(ngModel)]="data.shiftType" name="shiftType" [compareWith]="compareObjects">
+          <mat-option *ngFor="let shift of shifts" [value]="shift.value">
+            {{shift.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="form">
+        <mat-form-field>
+          <input matInput placeholder="Trajanje smene" [(ngModel)]="data.shiftDuration" name="shiftDuration" [disabled]="flag==3" required>
+        </mat-form-field>
+      </div>
+      <div class="form">
+        <mat-form-field>
+          <input matInput placeholder="Radno mesto" [(ngModel)]="data.workplace" name="workplace" [disabled]="flag==3" required>
+        </mat-form-field>
+      </div>
+
+      <button mat-button *ngIf="flag==1" [type]="submit" [mat-dialog-close]="1" (click)="add()" [disabled]="!formControl.valid">Dodaj</button>
+      <button mat-button *ngIf="flag==2" [type]="submit" [mat-dialog-close]="1" (click)="update()" [disabled]="!formControl.valid">Izmeni</button>
+      <button mat-button *ngIf="flag==3" [type]="submit" [mat-dialog-close]="1" (click)="delete()">Obriši</button>
+      <button mat-button (click)="cancel()">Odustani</button>
+    </form>
+  </div>
+  

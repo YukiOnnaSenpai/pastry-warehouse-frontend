@@ -27,6 +27,11 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { ProductEmployeeService } from './services/product-employee/product-employee.service';
 import { SupplyService } from './services/supply/supply.service';
 import { WorkOrderService } from './services/work-order/work-order.service';
+import { SupplyDialogComponent } from './dialogs/supply-dialog/supply-dialog.component';
+import { ProductEmployeeDialogComponent } from './dialogs/product-employee-dialog/product-employee-dialog.component';
+import { WorkOrderDialogComponent } from './dialogs/work-order-dialog/work-order-dialog.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSelectModule } from '@angular/material/select';
 
 const Routes = [
   {path: 'employee', component: EmployeeComponent},
@@ -44,7 +49,10 @@ const Routes = [
     EmployeeComponent,
     WorkOrderComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    SupplyDialogComponent,
+    ProductEmployeeDialogComponent,
+    WorkOrderDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -62,9 +70,9 @@ const Routes = [
     MatSortModule, 
     MatTableModule,
     MatToolbarModule, 
-    // MatSelectModule, 
+    MatSelectModule, 
     // MatOptionModule,
-    // MatSnackBarModule, 
+    MatSnackBarModule, 
     MatDialogModule, 
     MatInputModule,
     // MatCheckboxModule, 
