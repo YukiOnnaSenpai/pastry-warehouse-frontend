@@ -24,17 +24,20 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCardModule } from '@angular/material/card';
 import { ProductEmployeeService } from './services/product-employee/product-employee.service';
 import { SupplyService } from './services/supply/supply.service';
 import { WorkOrderService } from './services/work-order/work-order.service';
 
 const Routes = [
-  {path: 'employee', component: EmployeeComponent},
-  {path: 'supply', component: SupplyComponent},
-  {path: 'workOrder', component: WorkOrderComponent},
+  { path: '', redirectTo: 'home', pathMatch: 'full'},
+  { path: 'employee', component: EmployeeComponent},
+  { path: 'supply', component: SupplyComponent},
+  { path: 'workOrder', component: WorkOrderComponent},
   { path: 'about', component: AboutComponent},
   { path: 'home', component: HomeComponent},
-  { path: '', redirectTo: 'home', pathMatch: 'full'},
+  { path: '**', component: HomeComponent}
 ];
 
 @NgModule({
@@ -61,16 +64,18 @@ const Routes = [
     MatExpansionModule, 
     MatSortModule, 
     MatTableModule,
-    MatToolbarModule, 
+    MatToolbarModule,
+    MatCardModule, 
     // MatSelectModule, 
     // MatOptionModule,
-    // MatSnackBarModule, 
+    MatSnackBarModule, 
     MatDialogModule, 
     MatInputModule,
     // MatCheckboxModule, 
     MatPaginatorModule, 
-    MatSortModule
+    MatSortModule,
   ],
+  exports: [RouterModule],
   providers: [ProductEmployeeService, SupplyService, WorkOrderService],
   bootstrap: [AppComponent]
 })
