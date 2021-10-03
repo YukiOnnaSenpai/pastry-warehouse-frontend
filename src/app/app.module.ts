@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SupplyComponent } from './components/supply/supply.component';
@@ -24,22 +23,24 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCardModule } from '@angular/material/card';
 import { ProductEmployeeService } from './services/product-employee/product-employee.service';
 import { SupplyService } from './services/supply/supply.service';
 import { WorkOrderService } from './services/work-order/work-order.service';
 import { SupplyDialogComponent } from './dialogs/supply-dialog/supply-dialog.component';
 import { ProductEmployeeDialogComponent } from './dialogs/product-employee-dialog/product-employee-dialog.component';
 import { WorkOrderDialogComponent } from './dialogs/work-order-dialog/work-order-dialog.component';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
 
 const Routes = [
-  {path: 'employee', component: EmployeeComponent},
-  {path: 'supply', component: SupplyComponent},
-  {path: 'workOrder', component: WorkOrderComponent},
-  { path: 'about', component: AboutComponent},
-  { path: 'home', component: HomeComponent},
-  { path: '', redirectTo: 'home', pathMatch: 'full'},
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'employee', component: EmployeeComponent },
+  { path: 'supply', component: SupplyComponent },
+  { path: 'workOrder', component: WorkOrderComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'home', component: HomeComponent },
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({
@@ -61,24 +62,27 @@ const Routes = [
     RouterModule.forRoot(Routes),
     HttpClientModule,
     FormsModule,
-    MatButtonModule, 
-    MatIconModule, 
-    MatSidenavModule, 
+    MatButtonModule,
+    MatIconModule,
+    MatSidenavModule,
     MatListModule,
-    MatGridListModule, 
-    MatExpansionModule, 
-    MatSortModule, 
+    MatGridListModule,
+    MatExpansionModule,
+    MatSortModule,
     MatTableModule,
-    MatToolbarModule, 
-    MatSelectModule, 
+    MatSelectModule,
+    MatToolbarModule,
+    MatCardModule,
+    // MatSelectModule, 
     // MatOptionModule,
-    MatSnackBarModule, 
-    MatDialogModule, 
+    MatSnackBarModule,
+    MatDialogModule,
     MatInputModule,
     // MatCheckboxModule, 
-    MatPaginatorModule, 
-    MatSortModule
+    MatPaginatorModule,
+    MatSortModule,
   ],
+  exports: [RouterModule],
   providers: [ProductEmployeeService, SupplyService, WorkOrderService],
   bootstrap: [AppComponent]
 })

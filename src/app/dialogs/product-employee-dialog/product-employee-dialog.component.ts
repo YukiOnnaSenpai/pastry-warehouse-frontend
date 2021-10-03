@@ -14,7 +14,7 @@ import { Shift } from 'src/app/models/shift';
 })
 export class ProductEmployeeDialogComponent implements OnInit {
 
-  public flag: number;
+  public flag: number | any;
 
   shifts: Shift[] = [
     { value: '0', viewValue: 'Dnevna' },
@@ -49,9 +49,4 @@ export class ProductEmployeeDialogComponent implements OnInit {
     this.dialogRef.close();
     this.snackBar.open("Odustali ste!", "U redu", { duration: 1000 });
   }
-
-  compareObjects(o1: any, o2: any): boolean {
-    return o1.name === o2.name && o1.id === o2.id;
-  }
-
 }

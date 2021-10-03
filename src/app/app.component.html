@@ -2,25 +2,22 @@
   <mat-sidenav opened mode="side">
     <mat-accordion>
       <a mat-button style="text-align:center">
-        <mat-icon [routerLink]="['home']">home</mat-icon>
+        <mat-icon routerLink="['home']" routerLinkActive="active">home</mat-icon>
       </a>
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
-            Aplikacija
+            Skladište
           </mat-panel-title>
-          <mat-panel-description>
-            Aplikacija za upravljanje skladistem
-          </mat-panel-description>
         </mat-expansion-panel-header>
         <mat-nav-list>
-          <a mat-button [routerLink]="['employee']">Zaposleni</a>
+          <a mat-button routerLink="['employee']" routerLinkActive="active">Zaposleni</a>
         </mat-nav-list>
         <mat-nav-list>
-          <a mat-button [routerLink]="['supply']">Zalihe</a>
+          <a mat-button routerLink="['supply']" routerLinkActive="active">Zalihe</a>
         </mat-nav-list>
         <mat-nav-list>
-          <a mat-button [routerLink]="['workOrder']">Radni nalog</a>
+          <a mat-button routerLink="['workOrder']" routerLinkActive="active">Radni nalog</a>
         </mat-nav-list>
       </mat-expansion-panel>
 
@@ -29,12 +26,9 @@
           <mat-panel-title>
             Informacije
           </mat-panel-title>
-          <mat-panel-description>
-            Osnovne informacije o aplikaciji
-          </mat-panel-description>
         </mat-expansion-panel-header>
         <mat-nav-list>
-          <a mat-button [routerLink]="['about']">Pomoć</a>
+          <a mat-button routerLink="/about" routerLinkActive="active">Pomoć</a>
         </mat-nav-list>
       </mat-expansion-panel>
 
@@ -42,4 +36,7 @@
   </mat-sidenav>
   <router-outlet></router-outlet>
 </mat-sidenav-container>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3fd478f188987e880f451acc2dc4e7713d07ff77

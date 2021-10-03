@@ -1,0 +1,15 @@
+.mat-icon{
+    transform: scale(2);
+}
+
+.mat-grid-tile {
+    text-align: center;
+}
+
+.mat-card {
+    background-color: #B4F8C8;
+    text-transform: uppercase;
+    min-width: 25em;
+    min-height: 7.5em;
+    padding-top: 2.5em;
+}

@@ -38,14 +38,16 @@
           <input matInput placeholder="Plata" [(ngModel)]="data.salary" name="salary" [disabled]="flag==3" required>
         </mat-form-field>
       </div>
+
       <mat-form-field>
         <mat-label>Tip smene</mat-label>
-        <mat-select [(ngModel)]="data.shiftType" name="shiftType" [compareWith]="compareObjects">
+        <mat-select [(ngModel)]="data.shiftType" name="shiftType">
           <mat-option *ngFor="let shift of shifts" [value]="shift.value">
             {{shift.viewValue}}
           </mat-option>
         </mat-select>
       </mat-form-field>
+      
       <div class="form">
         <mat-form-field>
           <input matInput placeholder="Trajanje smene" [(ngModel)]="data.shiftDuration" name="shiftDuration" [disabled]="flag==3" required>
