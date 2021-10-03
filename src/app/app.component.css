@@ -21,4 +21,9 @@
 .mat-button {
     text-align: left;
     display: block;
+    min-width: 20em;
+}
+
+.mat-button:hover {
+    background-color: #FBE7C6;
 }
