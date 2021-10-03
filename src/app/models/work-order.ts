@@ -1,4 +1,4 @@
-import { ProductEmployee } from "./product-emplyee";
+import { ProductEmployee } from "./product-employee";
 
 export class WorkOrder{
     id: number | any;
@@ -10,5 +10,4 @@ export class WorkOrder{
     purchasePriceCurrency: string | any;
     planningPeriod: string | any;
     productEmployee: ProductEmployee | any;
-
 }
