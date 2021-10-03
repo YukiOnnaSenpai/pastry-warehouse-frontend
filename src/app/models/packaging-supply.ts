@@ -1,7 +1,7 @@
 import { Supply } from "./supply";
 
-export class Material{
+export class PackagingSupply{
     id: number | any;
-    materialType: string | any;
+    material: string | any;
     supply: Supply | any;
 }

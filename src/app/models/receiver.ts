@@ -1,4 +1,5 @@
 import { Document } from "./document";
+import { Supplier } from "./supplier";
 
 export class Receiver{
     document: Document | any;
@@ -6,4 +7,5 @@ export class Receiver{
     quantity: number | any;
     measurementUnit: string | any;
     pricePerUnit: number | any;
+    supplier: Supplier | any;
 }

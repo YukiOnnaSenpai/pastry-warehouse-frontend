@@ -6,7 +6,4 @@ export class Supply {
     name: string | any;
     stockQuantity: number | any;
     measurementUnit: string | any;
-    //equipmet
-    //material
-    //packaging-supply
 }
