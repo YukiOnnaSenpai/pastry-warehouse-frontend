@@ -14,12 +14,12 @@ import { ProductEmployeeService } from 'src/app/services/product-employee/produc
 })
 export class EmployeeComponent implements OnInit {
   displayedColumns = ['id', 'firstName', 'lastName', 'phoneNumber', 'personalId', 'bankAccountNumber', 'salary', 'shiftType', 'shiftDuration', 'workplace', 'qualifications', 'actions'];
-  dataSource: MatTableDataSource<ProductEmployee>;
+  dataSource: MatTableDataSource<ProductEmployee> | undefined;
 
   constructor(public productEmployeeService: ProductEmployeeService, public dialog: MatDialog) { }
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator | any;
+  @ViewChild(MatSort) sort: MatSort | any;
 
   ngOnInit(): void {
     this.loadData();

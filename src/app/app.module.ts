@@ -9,7 +9,7 @@ import { HomeComponent } from './components/core/home/home.component';
 import { AboutComponent } from './components/core/about/about.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
@@ -32,6 +32,9 @@ import { SupplyDialogComponent } from './dialogs/supply-dialog/supply-dialog.com
 import { ProductEmployeeDialogComponent } from './dialogs/product-employee-dialog/product-employee-dialog.component';
 import { WorkOrderDialogComponent } from './dialogs/work-order-dialog/work-order-dialog.component';
 import { MatSelectModule } from '@angular/material/select';
+import { MatStepperModule } from '@angular/material/stepper';
+import { RecipeDialogComponent } from './dialogs/recipe-dialog/recipe-dialog.component';
+import { IngredientDialogComponent } from './dialogs/ingredient-dialog/ingredient-dialog.component';
 
 const Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -53,7 +56,9 @@ const Routes = [
     AboutComponent,
     SupplyDialogComponent,
     ProductEmployeeDialogComponent,
-    WorkOrderDialogComponent
+    WorkOrderDialogComponent,
+    RecipeDialogComponent,
+    IngredientDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +67,7 @@ const Routes = [
     RouterModule.forRoot(Routes),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
@@ -72,8 +78,7 @@ const Routes = [
     MatTableModule,
     MatSelectModule,
     MatToolbarModule,
-    MatCardModule,
-    // MatSelectModule, 
+    MatCardModule, 
     // MatOptionModule,
     MatSnackBarModule,
     MatDialogModule,
@@ -81,6 +86,7 @@ const Routes = [
     // MatCheckboxModule, 
     MatPaginatorModule,
     MatSortModule,
+    MatStepperModule
   ],
   exports: [RouterModule],
   providers: [ProductEmployeeService, SupplyService, WorkOrderService],
