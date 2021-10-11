@@ -32,6 +32,11 @@ import { SupplyDialogComponent } from './dialogs/supply-dialog/supply-dialog.com
 import { ProductEmployeeDialogComponent } from './dialogs/product-employee-dialog/product-employee-dialog.component';
 import { WorkOrderDialogComponent } from './dialogs/work-order-dialog/work-order-dialog.component';
 import { MatSelectModule } from '@angular/material/select';
+import { MaterialComponent } from './components/material/material.component';
+import { MaterialService } from './services/material/material.service';
+import { EquipmentService } from './services/equipment/equipment.service';
+import { EquipmentComponent } from './components/equipment/equipment.component';
+import { MaterialDialogComponent } from './dialogs/material-dialog/material-dialog.component';
 
 const Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -40,6 +45,7 @@ const Routes = [
   { path: 'workOrder', component: WorkOrderComponent },
   { path: 'about', component: AboutComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'material', component: MaterialComponent },
   { path: '**', component: HomeComponent }
 ];
 
@@ -53,7 +59,10 @@ const Routes = [
     AboutComponent,
     SupplyDialogComponent,
     ProductEmployeeDialogComponent,
-    WorkOrderDialogComponent
+    WorkOrderDialogComponent,
+    MaterialComponent,
+    EquipmentComponent,
+    MaterialDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +92,7 @@ const Routes = [
     MatSortModule,
   ],
   exports: [RouterModule],
-  providers: [ProductEmployeeService, SupplyService, WorkOrderService],
+  providers: [ProductEmployeeService, SupplyService, WorkOrderService, MaterialService, EquipmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
