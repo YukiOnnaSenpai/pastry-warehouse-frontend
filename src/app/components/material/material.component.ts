@@ -38,7 +38,6 @@ export class MaterialComponent implements OnInit {
     dateAdded: string, validFrom: string, validTo: string,
     name: string, stockQuantity: number,
     measurementUnit: string) {
-      console.log(flag);
     const dialogRef = this.dialog.open(MaterialDialogComponent, {
       data: {
         id: id, materialType: materialType, validFrom: validFrom,

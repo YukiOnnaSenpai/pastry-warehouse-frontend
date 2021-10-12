@@ -9,7 +9,7 @@ import { HomeComponent } from './components/core/home/home.component';
 import { AboutComponent } from './components/core/about/about.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
@@ -37,6 +37,11 @@ import { MaterialService } from './services/material/material.service';
 import { EquipmentService } from './services/equipment/equipment.service';
 import { EquipmentComponent } from './components/equipment/equipment.component';
 import { MaterialDialogComponent } from './dialogs/material-dialog/material-dialog.component';
+import { MatStepperModule } from '@angular/material/stepper';
+import { RecipeDialogComponent } from './dialogs/recipe-dialog/recipe-dialog.component';
+import { IngredientDialogComponent } from './dialogs/ingredient-dialog/ingredient-dialog.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 const Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -62,7 +67,9 @@ const Routes = [
     WorkOrderDialogComponent,
     MaterialComponent,
     EquipmentComponent,
-    MaterialDialogComponent
+    MaterialDialogComponent,
+    RecipeDialogComponent,
+    IngredientDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -71,6 +78,7 @@ const Routes = [
     RouterModule.forRoot(Routes),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
@@ -81,8 +89,7 @@ const Routes = [
     MatTableModule,
     MatSelectModule,
     MatToolbarModule,
-    MatCardModule,
-    // MatSelectModule, 
+    MatCardModule, 
     // MatOptionModule,
     MatSnackBarModule,
     MatDialogModule,
@@ -90,6 +97,9 @@ const Routes = [
     // MatCheckboxModule, 
     MatPaginatorModule,
     MatSortModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports: [RouterModule],
   providers: [ProductEmployeeService, SupplyService, WorkOrderService, MaterialService, EquipmentService],

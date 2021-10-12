@@ -12,7 +12,6 @@ export class SupplyService {
   private readonly API_URL = environment.API_URL + 'supply/';
 
   dataChange: BehaviorSubject<Supply[]> = new BehaviorSubject<Supply[]>([]);
-
   constructor(private httpClient: HttpClient) { }
 
   public getAllSupplies(): Observable<Supply[]> {
@@ -25,8 +24,15 @@ export class SupplyService {
     return this.dataChange.asObservable();
   }
 
-  public addSupply(supply: Supply): void {
-    this.httpClient.post(this.API_URL, supply).subscribe();
+  public addSupply(supply: Supply): any {
+    var created = new Supply();
+    this.httpClient.post<Supply>(this.API_URL, supply).subscribe(data => {
+      console.log(data);
+      created = data;
+     
+    });
+     return created;
+    
   }
 
   public updateSupply(supply: Supply): void {

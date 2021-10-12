@@ -2,7 +2,9 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Material } from 'src/app/models/material';
+import { Supply } from 'src/app/models/supply';
 import { MaterialService } from 'src/app/services/material/material.service';
+import { SupplyService } from 'src/app/services/supply/supply.service';
 
 @Component({
   selector: 'app-material-dialog',
@@ -13,14 +15,25 @@ export class MaterialDialogComponent implements OnInit {
 
   public flag: number | any;
 
-  constructor(public snackBar: MatSnackBar, public dialogRef: MatDialogRef<MaterialDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Material, public materialService: MaterialService) { }
+  constructor(public snackBar: MatSnackBar,
+    public dialogRef: MatDialogRef<MaterialDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Material,
+    public materialService: MaterialService,
+    public supplyService: SupplyService) { }
 
   ngOnInit(): void {
+    if (this.flag === 1) {
+      this.data = new Material();
+      this.data.supply = new Supply();
+    }
   }
 
-  public add(): void {
+  public async add(): void {
     this.data.id = -1;
+    var newSupply = this.supplyService.addSupply(this.data.supply);
+    this.data.supply = newSupply;
+    console.log(this.data.supply);
+    
     this.materialService.addMaterial(this.data);
     this.snackBar.open("Uspešno dodat materijal: " + this.data.id, "U redu", { duration: 2500 });
   }

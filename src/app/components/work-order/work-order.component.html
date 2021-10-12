@@ -1,1 +1,35 @@
-<p>work-order works!</p>
+<mat-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Odaberi recept</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Dalje</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" label="Odaberi zaposlenog">
+      <form [formGroup]="secondFormGroup">
+        <mat-form-field appearance="fill">
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+                 required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Vrati se</button>
+          <button mat-button matStepperNext>Dalje</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Kreiraj radni nalog</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Vrati se</button>
+        <button mat-button (click)="stepper.reset()">Zavrsi</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
