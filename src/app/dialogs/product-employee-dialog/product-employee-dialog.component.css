@@ -1,0 +1,12 @@
+.container{
+    min-width: 450px;
+}
+
+.form {
+    display: flex;
+}
+
+.mat-form-field {
+    font-size: 16px;
+    flex-grow: 1;
+}
