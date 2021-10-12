@@ -1,35 +1,54 @@
-<mat-stepper [linear]="isLinear" #stepper>
-    <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup">
-        <ng-template matStepLabel>Odaberi recept</ng-template>
-        <mat-form-field appearance="fill">
-          <mat-label>Name</mat-label>
-          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperNext>Dalje</button>
+<div class="container">
+    <form class="mat-dialog-content" #formControl="ngForm">
+        <div class="form">
+            <label mat-dialog-title>Datum kreiranja:
+                {{ currentDate | date }}
+            </label>
         </div>
-      </form>
-    </mat-step>
-    <mat-step [stepControl]="secondFormGroup" label="Odaberi zaposlenog">
-      <form [formGroup]="secondFormGroup">
-        <mat-form-field appearance="fill">
-          <mat-label>Address</mat-label>
-          <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
-                 required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Vrati se</button>
-          <button mat-button matStepperNext>Dalje</button>
-        </div>
-      </form>
-    </mat-step>
-    <mat-step>
-      <ng-template matStepLabel>Kreiraj radni nalog</ng-template>
-      <p>You are now done.</p>
-      <div>
-        <button mat-button matStepperPrevious>Vrati se</button>
-        <button mat-button (click)="stepper.reset()">Zavrsi</button>
-      </div>
-    </mat-step>
-  </mat-stepper>
+		<div class="form">
+			<mat-form-field>
+			  <input [(ngModel)]="workOrderData.validFrom" name="validFrom" matInput placeholder="Važi od"
+				[matDatepicker]="pickerValidFrom">
+			  <mat-datepicker-toggle matSuffix [for]="pickerValidFrom"></mat-datepicker-toggle>
+			  <mat-datepicker #pickerValidFrom></mat-datepicker>
+			</mat-form-field>
+		  </div>
+		  <div class="form">
+			<mat-form-field>
+			  <input [(ngModel)]="workOrderData.validTo" name="validTo" matInput placeholder="Važi do"
+				[matDatepicker]="pickerValidTo">
+			  <mat-datepicker-toggle matSuffix [for]="pickerValidTo"></mat-datepicker-toggle>
+			  <mat-datepicker #pickerValidTo></mat-datepicker>
+			</mat-form-field>
+		  </div>
+                <div class="form">
+                    <mat-form-field>
+                        <input matInput="matInput" placeholder="Cena" [(ngModel)]="workOrderData.purchasePriceAmount" name="purchasePriceAmount" required="required"></mat-form-field>
+                    </div>
+                    <div class="form">
+                        <mat-form-field>
+                            <input matInput="matInput" placeholder="Prodajna cena" [(ngModel)]="workOrderData.sellingPriceAmount" name="sellingPriceAmount" required="required"></mat-form-field>
+                        </div>
+                        <div class="form">
+                            <mat-form-field>
+                                <input matInput="matInput" placeholder="Valuta" [(ngModel)]="workOrderData.purchasePriceCurrency" name="purchasePriceCurrency" required="required"></mat-form-field>
+                            </div>
+							<div class="form">
+								<mat-form-field>
+									<input matInput="matInput" placeholder="Period planiranja" [(ngModel)]="workOrderData.planningPeriod" name="planningPeriod" required="required"></mat-form-field>
+								</div>
+                            <div class="form">
+                                <mat-form-field>
+                                    <mat-label>Zaposleni u proizvodnji</mat-label>
+                                    <mat-select [(ngModel)]="workOrderData.productEmployee" name="productEmployee">
+                                        <mat-option *ngFor="let employee of employeeData" [value]="employee">
+                                            {{employee.firstName}}
+                                            {{employee.lastName}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <button mat-raised-button color="accent" (click)="add()" [disabled]="!formControl.valid">Kreiraj</button>
+                        </form>
+                    </div>
+

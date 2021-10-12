@@ -35,6 +35,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatStepperModule } from '@angular/material/stepper';
 import { RecipeDialogComponent } from './dialogs/recipe-dialog/recipe-dialog.component';
 import { IngredientDialogComponent } from './dialogs/ingredient-dialog/ingredient-dialog.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 const Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -84,8 +87,11 @@ const Routes = [
     MatDialogModule,
     MatInputModule,
     // MatCheckboxModule, 
+    MatFormFieldModule,
     MatPaginatorModule,
     MatSortModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
     MatStepperModule
   ],
   exports: [RouterModule],

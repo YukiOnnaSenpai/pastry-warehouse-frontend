@@ -9,7 +9,7 @@ import { WorkOrder } from 'src/app/models/work-order';
 })
 export class WorkOrderService {
 
-  private readonly API_URL = environment.API_URL + 'workOrder/';
+  private readonly API_URL = environment.API_URL + 'workOrder';
 
   dataChange: BehaviorSubject<WorkOrder[]> = new BehaviorSubject<WorkOrder[]>([]);
 

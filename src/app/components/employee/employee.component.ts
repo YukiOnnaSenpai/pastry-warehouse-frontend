@@ -13,7 +13,8 @@ import { ProductEmployeeService } from 'src/app/services/product-employee/produc
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
-  displayedColumns = ['id', 'firstName', 'lastName', 'phoneNumber', 'personalId', 'bankAccountNumber', 'salary', 'shiftType', 'shiftDuration', 'workplace', 'qualifications', 'actions'];
+  displayedColumns = ['id', 'firstName', 'lastName', 'phoneNumber', 'personalId', 'bankAccountNumber', 'salary', 'shiftType', 
+  'shiftDuration', 'workplace', 'qualifications', 'actions'];
   dataSource: MatTableDataSource<ProductEmployee> | undefined;
 
   constructor(public productEmployeeService: ProductEmployeeService, public dialog: MatDialog) { }
@@ -52,5 +53,4 @@ export class EmployeeComponent implements OnInit {
       }
     });
   }
-
 }

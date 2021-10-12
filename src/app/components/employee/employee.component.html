@@ -59,12 +59,14 @@
 
             <mat-cell *matCellDef="let row; let i=index;">
                 <button mat-icon-button color="primary"
-                    (click)="openDialog(2, row.id, row.firstName, row.lastName, row.personalId, row.phoneNumber, row.bankAccountNumber, row.qualifications, row.salary, row.shiftType, row.shiftDuration, row.workplace)">
+                    (click)="openDialog(2, row.id, row.firstName, row.lastName, row.personalId, row.phoneNumber, 
+                    row.bankAccountNumber, row.qualifications, row.salary, row.shiftType, row.shiftDuration, row.workplace)">
                     <mat-icon aria-label="Edit">edit</mat-icon>
                 </button>
 
                 <button mat-icon-button color="primary"
-                    (click)="openDialog(3, row.id, row.firstName, row.lastName, row.personalId, row.phoneNumber, row.bankAccountNumber, row.qualifications, row.salary, row.shiftType, row.shiftDuration, row.workplace)">
+                    (click)="openDialog(3, row.id, row.firstName, row.lastName, row.personalId, row.phoneNumber, 
+                    row.bankAccountNumber, row.qualifications, row.salary, row.shiftType, row.shiftDuration, row.workplace)">
                     <mat-icon aria-label="Delete">delete</mat-icon>
                 </button>
             </mat-cell>
