@@ -27,10 +27,6 @@ export class MaterialService {
   }
 
   public addMaterial(material: Material): number {
-    // console.log(material);
-    // var newSupplyId = this.supplyService.addSupply(material.supply);
-    // material.supply.id = newSupplyId;
-    // console.log(material);
     var result = 0;
     this.httpClient.post<Material>(this.API_URL, material).subscribe(data => {
       result = data.id;
@@ -39,7 +35,7 @@ export class MaterialService {
   }
 
   public updateMaterial(material: Material): void {
-    this.httpClient.put(this.API_URL + material.id, material).subscribe();
+    this.httpClient.put(this.API_URL + material.supply.id, material).subscribe();
   }
 
   public deleteMaterial(id: number): void {

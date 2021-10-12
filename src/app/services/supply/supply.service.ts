@@ -9,9 +9,11 @@ import { Supply } from 'src/app/models/supply';
 })
 export class SupplyService {
 
-  private readonly API_URL = environment.API_URL + 'supply/';
+  private readonly API_URL = environment.API_URL + 'supply';
 
   dataChange: BehaviorSubject<Supply[]> = new BehaviorSubject<Supply[]>([]);
+  newSupply: BehaviorSubject<Supply> = new BehaviorSubject<Supply>(new Supply());
+
   constructor(private httpClient: HttpClient) { }
 
   public getAllSupplies(): Observable<Supply[]> {
@@ -24,14 +26,11 @@ export class SupplyService {
     return this.dataChange.asObservable();
   }
 
-  public addSupply(supply: Supply): any {
-    var created = new Supply();
+  public addSupply(supply: Supply): Observable<Supply> {
     this.httpClient.post<Supply>(this.API_URL, supply).subscribe(data => {
-      console.log(data);
-      created = data;
-     
+      this.newSupply.next(data);
     });
-     return created;
+     return this.newSupply.asObservable();
     
   }
 

@@ -1,0 +1,68 @@
+<div class="container">
+  <h3 mat-dialog-title *ngIf="flag==1">Dodavanje opreme</h3>
+  <h3 mat-dialog-title *ngIf="flag==2">Modifikacija opreme</h3>
+  <h3 mat-dialog-title *ngIf="flag==3">Brisanje opreme</h3>
+  <form class="mat-dialog-content" #formControl="ngForm">
+    <div class="form">
+      <mat-form-field>
+        <input matInput placeholder="Garancija" [(ngModel)]="data.warranty" name="warranty"
+          [disabled]="flag==3" required>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field>
+        <input matInput placeholder="Status održavanja" [(ngModel)]="data.maintainedStatus" name="maintainedStatus"
+          [disabled]="flag==3" required>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field>
+        <input [(ngModel)]="data.supply.dateAdded" name="dateAdded" [disabled]="flag==3" matInput placeholder="Dodato"
+          [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field>
+        <input [(ngModel)]="data.supply.validFrom" name="validFrom" [disabled]="flag==3" matInput placeholder="Važi od"
+          [matDatepicker]="pickerValidFrom">
+        <mat-datepicker-toggle matSuffix [for]="pickerValidFrom"></mat-datepicker-toggle>
+        <mat-datepicker #pickerValidFrom></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field>
+        <input [(ngModel)]="data.supply.validTo" name="validTo" [disabled]="flag==3" matInput placeholder="Važi do"
+          [matDatepicker]="pickerValidTo">
+        <mat-datepicker-toggle matSuffix [for]="pickerValidTo"></mat-datepicker-toggle>
+        <mat-datepicker #pickerValidTo></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field>
+        <input matInput placeholder="Naziv" [(ngModel)]="data.supply.name" name="name" [disabled]="flag==3" required>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field>
+        <input matInput placeholder="Na stanju" [(ngModel)]="data.supply.stockQuantity" name="stockQuantity"
+          [disabled]="flag==3" required>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field>
+        <input matInput placeholder="Jedinica mere" [(ngModel)]="data.supply.measurementUnit" name="measurementUnit"
+          [disabled]="flag==3" required>
+      </mat-form-field>
+    </div>
+
+
+    <button mat-button *ngIf="flag==1" [type]="submit" [mat-dialog-close]="1" (click)="add()"
+      [disabled]="!formControl.valid">Dodaj</button>
+    <button mat-button *ngIf="flag==2" [type]="submit" [mat-dialog-close]="1" (click)="update()"
+      [disabled]="!formControl.valid">Izmeni</button>
+    <button mat-button *ngIf="flag==3" [type]="submit" [mat-dialog-close]="1" (click)="delete()">Obriši</button>
+    <button mat-button (click)="cancel()">Odustani</button>
+  </form>
+</div>

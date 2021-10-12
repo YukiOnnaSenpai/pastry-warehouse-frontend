@@ -14,13 +14,13 @@ import { MaterialService } from 'src/app/services/material/material.service';
 })
 export class MaterialComponent implements OnInit {
   displayedColumns = ['id', 'materialType', 'dateAdded', 'validFrom', 'validTo', 'name', 'stockQuantity', 'measurementUnit', 'actions'];
-  dataSource: MatTableDataSource<Material>;
+  dataSource: MatTableDataSource<Material> | any;
 
   constructor(public materialService: MaterialService, public dialog: MatDialog) { }
 
   
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator | any;
+  @ViewChild(MatSort) sort: MatSort | any;
 
   ngOnInit(): void {
     this.loadData();
@@ -40,9 +40,13 @@ export class MaterialComponent implements OnInit {
     measurementUnit: string) {
     const dialogRef = this.dialog.open(MaterialDialogComponent, {
       data: {
-        id: id, materialType: materialType, validFrom: validFrom,
-        validTo: validTo, dateAdded: dateAdded, name: name,
-        stockQuantity: stockQuantity, measurementUnit: measurementUnit
+         materialType: materialType, supply: {
+          id: id,
+          dateAdded: dateAdded,
+          validFrom: validFrom,
+          validTo: validTo, name: name,
+          stockQuantity: stockQuantity, measurementUnit: measurementUnit
+        } 
       }
     });
     dialogRef.componentInstance.flag = flag;

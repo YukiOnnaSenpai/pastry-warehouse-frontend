@@ -6,31 +6,31 @@
     <mat-table #table [dataSource]="dataSource" matSort class="mat-cell">
         <ng-container matColumnDef="id">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
-            <mat-cell *matCellDef="let row">{{row.suply.id}}</mat-cell>
+            <mat-cell *matCellDef="let row">{{row.supply.id}}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="dateAdded">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Dodato</mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{row.suply.dateAdded}}</mat-cell>
+            <mat-cell *matCellDef="let row"> {{row.supply.dateAdded}}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="validFrom">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Važi od</mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{row.suply.validFrom}}</mat-cell>
+            <mat-cell *matCellDef="let row"> {{row.supply.validFrom}}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="validTo">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Važi do</mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{row.suply.validTo}}</mat-cell>
+            <mat-cell *matCellDef="let row"> {{row.supply.validTo}}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="name">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Ime</mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{row.suply.name}}</mat-cell>
+            <mat-cell *matCellDef="let row"> {{row.supply.name}}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="stockQuantity">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Na stanju</mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{row.suply.stockQuantity}}</mat-cell>
+            <mat-cell *matCellDef="let row"> {{row.supply.stockQuantity}}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="measurementUnit">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Merna jedinica</mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{row.suply.measurementUnit}}</mat-cell>
+            <mat-cell *matCellDef="let row"> {{row.supply.measurementUnit}}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="materialType">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Tip materijala</mat-header-cell>
@@ -47,12 +47,12 @@
 
             <mat-cell *matCellDef="let row; let i=index;">
                 <button mat-icon-button color="primary"
-                    (click)="openDialog(2, row.id, row.materialType, row.supply.validFrom, row.supply.validTo, row.supply.dateAdded, row.supply.name, row.supply.stockQuantity, row.supply.measurementUnit)">
+                    (click)="openDialog(2, row.supply.id, row.materialType, row.supply.dateAdded, row.supply.validFrom, row.supply.validTo, row.supply.name, row.supply.stockQuantity, row.supply.measurementUnit)">
                     <mat-icon aria-label="Edit">edit</mat-icon>
                 </button>
 
                 <button mat-icon-button color="primary"
-                    (click)="openDialog(3, row.id, row.materialType, row.supply.validFrom, row.supply.validTo, row.supply.dateAdded, row.supply.name, row.supply.stockQuantity, row.supply.measurementUnit)">
+                    (click)="openDialog(3, row.supply.id, row.materialType, row.supply.dateAdded, row.supply.validFrom, row.supply.validTo, row.supply.name, row.supply.stockQuantity, row.supply.measurementUnit)">
                     <mat-icon aria-label="Delete">delete</mat-icon>
                 </button>
             </mat-cell>

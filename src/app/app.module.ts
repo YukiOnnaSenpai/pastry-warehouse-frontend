@@ -42,6 +42,7 @@ import { RecipeDialogComponent } from './dialogs/recipe-dialog/recipe-dialog.com
 import { IngredientDialogComponent } from './dialogs/ingredient-dialog/ingredient-dialog.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { EquipmentDialogComponent } from './dialogs/equipment-dialog/equipment-dialog.component';
 
 const Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -51,6 +52,7 @@ const Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'home', component: HomeComponent },
   { path: 'material', component: MaterialComponent },
+  { path: 'equipment', component: EquipmentComponent },
   { path: '**', component: HomeComponent }
 ];
 
@@ -65,6 +67,7 @@ const Routes = [
     SupplyDialogComponent,
     ProductEmployeeDialogComponent,
     WorkOrderDialogComponent,
+    EquipmentDialogComponent,
     MaterialComponent,
     EquipmentComponent,
     MaterialDialogComponent,

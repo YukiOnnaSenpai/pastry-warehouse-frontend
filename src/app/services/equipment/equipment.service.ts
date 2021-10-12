@@ -24,5 +24,21 @@ export class EquipmentService {
       });
     return this.dataChange.asObservable();
   }
+
+  public addEquipment(equipment: Equipment): number {
+    var result = 0;
+    this.httpClient.post<Equipment>(this.API_URL, equipment).subscribe(data => {
+      result = data.id;
+    });
+    return result;
+  }
+
+  public updateEquipment(equipment: Equipment): void {
+    this.httpClient.put(this.API_URL + equipment.supply.id, equipment).subscribe();
+  }
+
+  public deleteEquipment(id: number): void {
+    this.httpClient.delete(this.API_URL + id).subscribe();
+  }
   
 }
