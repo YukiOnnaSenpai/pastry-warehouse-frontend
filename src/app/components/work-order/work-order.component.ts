@@ -34,9 +34,8 @@ export class WorkOrderComponent implements OnInit {
 
   public add(): void {
     this.checkDate();
-    console.log(this.workOrderData);
     this.workOrderService.addWorkOrder(this.workOrderData);
-    this.snackBar.open("Uspešno dodat radni nalog: " + this.workOrderData.id, "U redu", { duration: 2500 });
+    this.snackBar.open("Uspešno dodat radni nalog: " + this.workOrderData, "U redu", { duration: 2500 });
   }
 
   dateRange = new FormGroup({
@@ -46,8 +45,6 @@ export class WorkOrderComponent implements OnInit {
 
   checkDate() {
     this.workOrderData.dateCreated = this.currentDate;
-    // this.workOrderData.validFrom = new DatePipe('en-US').transform(this.workOrderData.validFrom, 'MM/dd/yyyy');
-    // this.workOrderData.validTo = new DatePipe('en-US').transform(this.workOrderData.validTo, 'MM/dd/yyyy');
   }
 
 }
