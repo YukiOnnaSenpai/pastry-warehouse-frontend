@@ -32,12 +32,18 @@ import { SupplyDialogComponent } from './dialogs/supply-dialog/supply-dialog.com
 import { ProductEmployeeDialogComponent } from './dialogs/product-employee-dialog/product-employee-dialog.component';
 import { WorkOrderDialogComponent } from './dialogs/work-order-dialog/work-order-dialog.component';
 import { MatSelectModule } from '@angular/material/select';
+import { MaterialComponent } from './components/material/material.component';
+import { MaterialService } from './services/material/material.service';
+import { EquipmentService } from './services/equipment/equipment.service';
+import { EquipmentComponent } from './components/equipment/equipment.component';
+import { MaterialDialogComponent } from './dialogs/material-dialog/material-dialog.component';
 import { MatStepperModule } from '@angular/material/stepper';
 import { RecipeDialogComponent } from './dialogs/recipe-dialog/recipe-dialog.component';
 import { IngredientDialogComponent } from './dialogs/ingredient-dialog/ingredient-dialog.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { EquipmentDialogComponent } from './dialogs/equipment-dialog/equipment-dialog.component';
 
 const Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -46,6 +52,8 @@ const Routes = [
   { path: 'workOrder', component: WorkOrderComponent },
   { path: 'about', component: AboutComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'material', component: MaterialComponent },
+  { path: 'equipment', component: EquipmentComponent },
   { path: '**', component: HomeComponent }
 ];
 
@@ -60,6 +68,10 @@ const Routes = [
     SupplyDialogComponent,
     ProductEmployeeDialogComponent,
     WorkOrderDialogComponent,
+    EquipmentDialogComponent,
+    MaterialComponent,
+    EquipmentComponent,
+    MaterialDialogComponent,
     RecipeDialogComponent,
     IngredientDialogComponent
   ],
@@ -90,12 +102,12 @@ const Routes = [
     MatFormFieldModule,
     MatPaginatorModule,
     MatSortModule,
-    MatNativeDateModule,
+    MatStepperModule,
     MatDatepickerModule,
-    MatStepperModule
+    MatNativeDateModule
   ],
   exports: [RouterModule],
-  providers: [ProductEmployeeService, SupplyService, WorkOrderService],
+  providers: [ProductEmployeeService, SupplyService, WorkOrderService, MaterialService, EquipmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

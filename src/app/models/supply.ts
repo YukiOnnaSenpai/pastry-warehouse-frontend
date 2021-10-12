@@ -1,4 +1,7 @@
 export class Supply {
+    asObservable(): any {
+      throw new Error('Method not implemented.');
+    }
     id: number | any;
     dateAdded: string | any;
     validFrom: string | any;
